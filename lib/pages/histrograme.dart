@@ -50,7 +50,7 @@ class _HistrogrameState extends State<Histrograme> {
       children: [
         SfCartesianChart(
             title: ChartTitle(
-              text: "Histry",
+              text: "History",
             ),
             primaryXAxis: CategoryAxis(),
             tooltipBehavior: TooltipBehavior(enable: true),

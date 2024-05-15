@@ -10,8 +10,10 @@ class CurrentSate extends StatefulWidget {
 }
 
 class _CurrentSateState extends State<CurrentSate> {
-  final _databaseReference = FirebaseDatabase.instance.ref().child('CurrentState');
+  final _databaseReference =
+      FirebaseDatabase.instance.ref().child('CurrentState');
   String currentvalue = '0';
+  double precentage = 0.5;
 
   @override
   void initState() {
@@ -20,11 +22,13 @@ class _CurrentSateState extends State<CurrentSate> {
   }
 
   void _setupDatabaseListener() {
-    _databaseReference.onValue.listen((event) {
-      setState(() {
-        currentvalue = event.snapshot.value.toString();
-      });
-    });
+    _databaseReference.onValue.listen(
+      (event) {
+        setState(() {
+          currentvalue = event.snapshot.value.toString();
+        });
+      },
+    );
   }
 
   @override
@@ -32,7 +36,7 @@ class _CurrentSateState extends State<CurrentSate> {
     return CircularPercentIndicator(
       radius: 60.0,
       lineWidth: 5.0,
-      percent: 1.0,
+      percent: precentage,
       center: Text("$currentvalue %"),
       progressColor: Colors.green,
     );
