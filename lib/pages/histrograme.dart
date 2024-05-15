@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +50,7 @@ class _HistrogrameState extends State<Histrograme> {
       children: [
         SfCartesianChart(
             title: ChartTitle(
-              text: "Pramodoo",
+              text: "Histry",
             ),
             primaryXAxis: CategoryAxis(),
             tooltipBehavior: TooltipBehavior(enable: true),

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:smartbin/pages/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   await Firebase.initializeApp();
-  if (Firebase.apps.isEmpty) {
-    print("Firebase is initialized :: ${Firebase.app().options}");
-  }
   runApp(const MyApp());
 }
 
