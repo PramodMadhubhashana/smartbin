@@ -17,12 +17,12 @@ class _HistrogrameState extends State<Histrograme> {
   Future<void> _fetchDataFromFirestore() async {
     try {
       final CollectionReference capacityHistory =
-          FirebaseFirestore.instance.collection('sales');
+          FirebaseFirestore.instance.collection('Data');
       QuerySnapshot querySnapshot = await capacityHistory.get();
 
       List<_SalesData> newData = querySnapshot.docs.map((doc) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-        return _SalesData(data['year'].toString(), data['sales'].toDouble());
+        return _SalesData(data['Day'].toString(), data['Value'].toDouble());
       }).toList();
 
       setState(() {
